@@ -3,9 +3,7 @@
     <div class="row d-flex justify-content-center">
       <div class="col-md-3 text-left">
         <div class="card">
-            <div class="card-header">
-                Signin form 
-            </div>
+          <div class="card-header">Signin form</div>
           <div class="card-body">
             <form>
               <div class="form-group">
@@ -17,6 +15,7 @@
                   class="form-control form-control-sm"
                   placeholder="email"
                   aria-describedby="email"
+                  v-model="email"
                 >
                 <small id="email" class="text-muted">Enter your valid email address</small>
               </div>
@@ -29,16 +28,27 @@
                   class="form-control form-control-sm"
                   placeholder="password"
                   aria-describedby="password"
+                  v-model="password"
                 >
                 <small id="password" class="text-muted">Enter your desired password</small>
               </div>
             </form>
           </div>
           <div class="card-footer">
-              <button class="btn btn-sm btn-primary">signin</button>
+            <button class="btn btn-sm btn-primary">signin</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      email: "",
+      password: ""
+    };
+  }
+};
+</script>

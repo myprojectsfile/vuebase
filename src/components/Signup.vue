@@ -43,7 +43,6 @@
   </div>
 </template>
 <script>
-import axios from "../axios-auth.js";
 export default {
   data() {
     return {
@@ -53,10 +52,9 @@ export default {
   },
   methods: {
     signup() {
-      axios.post("/signupNewUser?key=AIzaSyBH7et2Vji_X2hbxc6yM4mUWMReE2zyHjg", {
+      this.$store.dispatch("signup", {
         email: this.email,
-        password: this.password,
-        returnSecureToken: true
+        password: this.password
       });
     }
   }

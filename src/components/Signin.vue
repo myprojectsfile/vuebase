@@ -35,7 +35,7 @@
             </form>
           </div>
           <div class="card-footer">
-            <button class="btn btn-sm btn-primary">signin</button>
+            <button class="btn btn-sm btn-secondary" @click="signin">signin</button>
           </div>
         </div>
       </div>
@@ -49,6 +49,14 @@ export default {
       email: "",
       password: ""
     };
+  },
+  methods: {
+    signin() {
+      this.$store.dispatch("signin", {
+        email: this.email,
+        password: this.password
+      });
+    }
   }
 };
 </script>

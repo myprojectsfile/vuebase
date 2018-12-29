@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './components/Home.vue'
 import Signin from './components/Signin.vue'
 import Signup from './components/Signup.vue'
+import store from './store'
 
 Vue.use(Router)
 
@@ -12,7 +13,14 @@ export default new Router({
   routes: [{
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      beforeEnter(to, from, next) {
+        if (store.state.idToken) {
+          next();
+        } else {
+          next('/signin');
+        }
+      }
     },
     {
       path: '/signin',
